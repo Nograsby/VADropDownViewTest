@@ -12,7 +12,7 @@
 
 @protocol VADropDownViewDelegate
 
-- (void)hideDropDownView:(VADropDownView *)view withData:(NSString *)string;
+- (void)hideDropDownView:(VADropDownView *)view withData:(NSString *)string andSender:(UIView *)senderView;
 
 @end
 
@@ -22,7 +22,7 @@
 @property (nonatomic, retain) id <VADropDownViewDelegate> delegate;
 //@property (nonatomic, retain) NSString *animationDirection;
 @property (nonatomic, strong) UITableView *table;
-@property (nonatomic, strong) UIButton *btnSender;
+@property (nonatomic, strong) UIView *senderView;
 @property (nonatomic, retain) NSArray *dataArray;
 
 - (void)hideDropDownView:(UIView *)view;

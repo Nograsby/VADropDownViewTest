@@ -14,7 +14,7 @@
 
 - (id)showDropDown:(id)sender withHeight:(CGFloat)height withData:(NSArray *)arr animationDirection:(NSString *)direction {
     UIView *senderView = (UIView *)sender;
-    _btnSender = senderView;
+    self.senderView = senderView;
     animationDirection = direction;
     self.table = (UITableView *)[super init];
     if (self) {
@@ -100,15 +100,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self hideDropDownView:_btnSender];
+    [self hideDropDownView:self.senderView];
     
-    for (UIView *subview in _btnSender.subviews) {
+    for (UIView *subview in self.senderView.subviews) {
         if ([subview isKindOfClass:[UIImageView class]]) {
             [subview removeFromSuperview];
         }
     }
     
-    [self.delegate hideDropDownView:self withData:self.dataArray[indexPath.row]];
+    [self.delegate hideDropDownView:self
+                           withData:self.dataArray[indexPath.row]
+                          andSender:self.senderView];
 }
 
 @end

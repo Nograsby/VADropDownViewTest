@@ -1,0 +1,12 @@
+PODS:
+  - JVFloatLabeledTextField (1.1.1)
+
+DEPENDENCIES:
+  - JVFloatLabeledTextField
+
+SPEC CHECKSUMS:
+  JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
+
+PODFILE CHECKSUM: 3aded46a4b41e4a74b4ea0d7d9a0a4096c749a68
+
+COCOAPODS: 1.0.1

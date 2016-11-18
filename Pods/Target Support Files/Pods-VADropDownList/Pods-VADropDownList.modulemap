@@ -1,0 +1,6 @@
+framework module Pods_VADropDownList {
+  umbrella header "Pods-VADropDownList-umbrella.h"
+
+  export *
+  module * { export * }
+}

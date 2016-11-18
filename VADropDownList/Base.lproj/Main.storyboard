@@ -1,49 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AVMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="8lr-xI-mDL"/>
+                        <viewControllerLayoutGuide type="bottom" id="isY-2d-TeR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkw-mZ-RWY">
-                                <rect key="frame" x="20" y="80" width="335" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="45l-Dv-JTi"/>
-                                </connections>
-                            </textField>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJ9-o0-11S">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Region" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkw-mZ-RWY" customClass="JVFloatLabeledTextField">
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="45l-Dv-JTi"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pej-1g-ZJr" customClass="JVFloatLabeledTextField">
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="AA1-DK-fEv"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLA-f7-Fxh" customClass="JVFloatLabeledTextField">
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="PsX-cF-TAe"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pej-1g-ZJr" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="20" id="15u-4N-e1s"/>
+                                    <constraint firstItem="lkw-mZ-RWY" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="20" id="3WZ-Nk-N63"/>
+                                    <constraint firstAttribute="bottom" secondItem="NLA-f7-Fxh" secondAttribute="bottom" constant="401" id="7VI-Nh-CkX"/>
+                                    <constraint firstAttribute="trailing" secondItem="lkw-mZ-RWY" secondAttribute="trailing" constant="20" id="GAr-E5-nl9"/>
+                                    <constraint firstAttribute="trailing" secondItem="pej-1g-ZJr" secondAttribute="trailing" constant="20" id="Rhg-fJ-4MA"/>
+                                    <constraint firstItem="NLA-f7-Fxh" firstAttribute="top" secondItem="pej-1g-ZJr" secondAttribute="bottom" constant="60" id="cRf-ki-ES5"/>
+                                    <constraint firstItem="lkw-mZ-RWY" firstAttribute="top" secondItem="JJ9-o0-11S" secondAttribute="topMargin" constant="60" id="cXH-EE-Mcy"/>
+                                    <constraint firstItem="NLA-f7-Fxh" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="20" id="g6p-lz-GYd"/>
+                                    <constraint firstAttribute="trailing" secondItem="NLA-f7-Fxh" secondAttribute="trailing" constant="20" id="j2M-de-yr8"/>
+                                    <constraint firstItem="lkw-mZ-RWY" firstAttribute="centerX" secondItem="JJ9-o0-11S" secondAttribute="centerX" id="r1x-57-HOf"/>
+                                    <constraint firstItem="pej-1g-ZJr" firstAttribute="top" secondItem="lkw-mZ-RWY" secondAttribute="bottom" constant="60" id="ujU-CV-mHc"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lkw-mZ-RWY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="JBp-Zt-vmt"/>
-                            <constraint firstItem="lkw-mZ-RWY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="JBv-sU-CM6"/>
-                            <constraint firstAttribute="trailing" secondItem="lkw-mZ-RWY" secondAttribute="trailing" constant="20" id="KbE-7d-ffE"/>
+                            <constraint firstItem="JJ9-o0-11S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2gI-ce-hxw"/>
+                            <constraint firstItem="isY-2d-TeR" firstAttribute="top" secondItem="JJ9-o0-11S" secondAttribute="bottom" id="e2q-lv-dkp"/>
+                            <constraint firstAttribute="trailing" secondItem="JJ9-o0-11S" secondAttribute="trailing" id="iAn-OQ-9je"/>
+                            <constraint firstItem="JJ9-o0-11S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="m7E-DY-Drt"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="lkw-mZ-RWY" id="urF-Eu-ywO"/>
+                        <outletCollection property="textFields" destination="lkw-mZ-RWY" id="niX-ut-McU"/>
+                        <outletCollection property="textFields" destination="pej-1g-ZJr" id="FgM-Jf-7jp"/>
+                        <outletCollection property="textFields" destination="NLA-f7-Fxh" id="feV-fG-6yO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
         </scene>
     </scenes>
 </document>

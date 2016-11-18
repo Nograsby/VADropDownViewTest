@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  AVMainViewController.m
 //  VADropDownList
 //
-//  Created by Vladimir Ananko on 11/17/16.
+//  Created by Vladimir Ananko on 11/18/16.
 //  Copyright © 2016 Vladimir Ananko. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AVMainViewController.h"
 
 #import "VADropDownView.h"
 
 #import "JVFloatLabeledTextField.h"
 
-@interface ViewController () <VADropDownViewDelegate, UITextFieldDelegate>
+@interface AVMainViewController () <VADropDownViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(JVFloatLabeledTextField) NSArray *textFields;
 @property (strong, nonatomic) VADropDownView *dropDownView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ViewController
+@implementation AVMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +28,7 @@
     for (UITextField *textField in self.textFields) {
         [textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     }
-
+    
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapGestureRecognizer];
@@ -47,9 +47,9 @@
     [self showDropDownList:textField withDataArray:filteredArray];
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    self.dropDownView = nil;
-}
+//- (void)textFieldDidEndEditing:(UITextField *)textField {
+//    [self hideDropDownList:textField];
+//}
 
 
 #pragma mark - VADropDownViewDelegate
