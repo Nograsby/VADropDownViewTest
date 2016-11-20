@@ -41,43 +41,40 @@
 }
 
 - (void)textFieldDidChange:(UITextField *)textField {
-    [self hideDropDownList:textField];
+    [self hideDropListWithSender:textField];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH[cd] %@", textField.text];
     NSArray *filteredArray = [self.listArray filteredArrayUsingPredicate:predicate];
-    [self showDropDownList:textField withDataArray:filteredArray];
+    [self showDropListWithSender:textField dataArray:filteredArray];
 }
 
-//- (void)textFieldDidEndEditing:(UITextField *)textField {
-//    [self hideDropDownList:textField];
-//}
-
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self hideDropListWithSender:textField];
+    });
+}
 
 #pragma mark - VADropDownViewDelegate
 
-- (void)hideDropDownView:(VADropDownView *)view
-                withData:(NSString *)string
-               andSender:(UIView *)senderView {
-    JVFloatLabeledTextField *textField = (JVFloatLabeledTextField *)senderView;
-    self.dropDownView = nil;
+- (void)selectedData:(NSString *)string
+        fromDropView:(VADropDownView *)view
+           forSender:(UIView *)sender {
+    JVFloatLabeledTextField *textField = (JVFloatLabeledTextField *)sender;
+    view = nil;
     textField.text = string;
 }
 
-- (void)showDropDownList:(id)sender withDataArray:(NSArray *)array {
-    if (!self.dropDownView) {
-        
-        CGFloat dropDownListHeight = (array.count >= 4) ? 176.f : array.count * 44.f;
-        NSString *direction = @"down";
-        
-        self.dropDownView = [[VADropDownView alloc] showDropDown:sender
-                                                      withHeight:dropDownListHeight
-                                                        withData:array
-                                              animationDirection:direction];
-        self.dropDownView.delegate = self;
-    }
+- (void)showDropListWithSender:(UIView *)sender
+                     dataArray:(NSArray *)array {
+    
+    self.dropDownView = [[VADropDownView alloc] initWithSender:sender
+                                             maxDisplayedLines:3
+                                                     dataArray:array
+                                                 dropDirection:DropDirectionDown];
+    self.dropDownView.delegate = self;
 }
 
-- (void)hideDropDownList:(id)sender {
-    [self.dropDownView hideDropDownView:sender];
+- (void)hideDropListWithSender:(UIView *)sender {
+    [self.dropDownView hideDropViewWithSender:sender];
     self.dropDownView = nil;
 }
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VADropDownView">
+            <connections>
+                <outlet property="tableView" destination="SCk-VU-FkZ" id="X4D-Hb-RXc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="176"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCk-VU-FkZ">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="176"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="rPe-hz-n8u"/>
+                        <outlet property="delegate" destination="-1" id="8d4-Mf-hhu"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SCk-VU-FkZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AGO-fb-jhZ"/>
+                <constraint firstAttribute="bottom" secondItem="SCk-VU-FkZ" secondAttribute="bottom" id="abp-iu-bWU"/>
+                <constraint firstItem="SCk-VU-FkZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gky-FK-q6F"/>
+                <constraint firstAttribute="trailing" secondItem="SCk-VU-FkZ" secondAttribute="trailing" id="uVr-6a-pqZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="2"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="29" y="64"/>
+        </view>
+    </objects>
+</document>

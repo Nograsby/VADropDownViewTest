@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,8 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJ9-o0-11S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Region" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkw-mZ-RWY" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="20" y="68" width="335" height="42"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -30,6 +35,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pej-1g-ZJr" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="20" y="170" width="335" height="42"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -38,6 +44,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLA-f7-Fxh" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="125" y="272" width="125" height="42"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -48,14 +55,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pej-1g-ZJr" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="20" id="15u-4N-e1s"/>
-                                    <constraint firstItem="lkw-mZ-RWY" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="20" id="3WZ-Nk-N63"/>
                                     <constraint firstAttribute="bottom" secondItem="NLA-f7-Fxh" secondAttribute="bottom" constant="401" id="7VI-Nh-CkX"/>
                                     <constraint firstAttribute="trailing" secondItem="lkw-mZ-RWY" secondAttribute="trailing" constant="20" id="GAr-E5-nl9"/>
                                     <constraint firstAttribute="trailing" secondItem="pej-1g-ZJr" secondAttribute="trailing" constant="20" id="Rhg-fJ-4MA"/>
                                     <constraint firstItem="NLA-f7-Fxh" firstAttribute="top" secondItem="pej-1g-ZJr" secondAttribute="bottom" constant="60" id="cRf-ki-ES5"/>
                                     <constraint firstItem="lkw-mZ-RWY" firstAttribute="top" secondItem="JJ9-o0-11S" secondAttribute="topMargin" constant="60" id="cXH-EE-Mcy"/>
-                                    <constraint firstItem="NLA-f7-Fxh" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="20" id="g6p-lz-GYd"/>
-                                    <constraint firstAttribute="trailing" secondItem="NLA-f7-Fxh" secondAttribute="trailing" constant="20" id="j2M-de-yr8"/>
+                                    <constraint firstItem="lkw-mZ-RWY" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="20" id="cu7-lP-exx"/>
+                                    <constraint firstItem="NLA-f7-Fxh" firstAttribute="leading" secondItem="JJ9-o0-11S" secondAttribute="leading" constant="125" id="g6p-lz-GYd"/>
+                                    <constraint firstAttribute="trailing" secondItem="NLA-f7-Fxh" secondAttribute="trailing" constant="125" id="j2M-de-yr8"/>
                                     <constraint firstItem="lkw-mZ-RWY" firstAttribute="centerX" secondItem="JJ9-o0-11S" secondAttribute="centerX" id="r1x-57-HOf"/>
                                     <constraint firstItem="pej-1g-ZJr" firstAttribute="top" secondItem="lkw-mZ-RWY" secondAttribute="bottom" constant="60" id="ujU-CV-mHc"/>
                                 </constraints>
