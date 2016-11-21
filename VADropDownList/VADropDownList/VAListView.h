@@ -17,8 +17,7 @@ typedef NS_ENUM(NSInteger, DropDirection) {
 
 @protocol VAListViewDelegate
 
-- (void)dataFromListView:(NSString *)string
-              withSender:(UIView *)sender;
+- (void)dataFromListView:(NSString *)string withSender:(UIView *)sender;
 
 @end
 
@@ -27,10 +26,8 @@ typedef NS_ENUM(NSInteger, DropDirection) {
 @property (nonatomic, weak) id <VAListViewDelegate> delegate;
 
 - (instancetype)initWithSender:(UIView *)sender
+            visibleSenderFrame:(CGRect)senderFrame
              maxDisplayedLines:(NSInteger)linesQuantity
-                     dataArray:(NSArray *)dataArray
-                 dropDirection:(DropDirection)direction;
-
-- (void)hideListViewWithSender:(UIView *)sender;
+                     dataArray:(NSArray *)dataArray;
 
 @end

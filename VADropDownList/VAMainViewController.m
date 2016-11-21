@@ -10,42 +10,26 @@
 
 #import "VAListView.h"
 
-#import "JVFloatLabeledTextField.h"
-
 @interface VAMainViewController () <VAListViewDelegate, UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) IBOutletCollection(JVFloatLabeledTextField) NSArray *textFields;
 @property (strong, nonatomic) VAListView *listView;
 @property (strong, nonatomic) NSArray *listArray;
-
+@property (weak, nonatomic) IBOutlet UIView *scrollView;
 
 @end
 
 @implementation VAMainViewController
 
-- (IBAction)textFieldEditingChanged:(JVFloatLabeledTextField *)sender {
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    for (UITextField *textField in self.textFields) {
-        [textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    }
-    
+
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
     tapRecognizer.cancelsTouchesInView = NO;
     tapRecognizer.delegate = self;
     [self.view addGestureRecognizer:tapRecognizer];
     
-    self.listArray = @[@"Россия 1", @"Россия 2", @"Россия 3", @"Россия 4", @"Россия 5", @"Беларусь", @"Украина"];
-    
-    
-
+    self.listArray = @[@"Belarus 1", @"Belarus 2", @"Belarus 3", @"Belarus 4", @"Belarus 5", @"Russia", @"Ukraine", @"Belgium", @"Andorra"];
 }
-
-
 
 - (void)hideKeyboard:(UITapGestureRecognizer *)tapGestureRecognizer {
     [self.view endEditing:YES];
@@ -58,42 +42,48 @@
     return YES;
 }
 
-- (void)textFieldDidChange:(UITextField *)textField {
-    [self hideDropListWithSender:textField];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH[cd] %@", textField.text];
+- (IBAction)textFieldEditingChanged:(UITextField *)sender {
+    [self hideDropList];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH[cd] %@", sender.text];
     NSArray *filteredArray = [self.listArray filteredArrayUsingPredicate:predicate];
-    [self showDropListWithSender:textField dataArray:filteredArray];
+    [self showDropListWithSender:sender dataArray:filteredArray];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [self hideDropListWithSender:textField];
+    [self hideDropList];
 }
 
 #pragma mark - VAListViewDelegate
 
-- (void)dataFromListView:(NSString *)string
-              withSender:(UIView *)sender {
-    JVFloatLabeledTextField *textField = (JVFloatLabeledTextField *)sender;
+- (void)dataFromListView:(NSString *)string withSender:(UIView *)sender {
+    UITextField *textField = (UITextField *)sender;
     textField.text = string;
     
     [self.listView removeFromSuperview];
-
     self.listView = nil;
+    
     [self.view endEditing:YES];
 }
 
-- (void)showDropListWithSender:(UIView *)sender
-                     dataArray:(NSArray *)array {
+- (void)showDropListWithSender:(UIView *)sender dataArray:(NSArray *)array {
+    
+    CGRect visibleSenderFrame = [self getVisibleFrameFor:sender];
     
     self.listView = [[VAListView alloc] initWithSender:sender
+                                    visibleSenderFrame:visibleSenderFrame
                                      maxDisplayedLines:3
-                                             dataArray:array
-                                         dropDirection:DropDirectionUp];
+                                             dataArray:array];
     self.listView.delegate = self;
 }
 
-- (void)hideDropListWithSender:(UIView *)sender {
-    [self.listView hideListViewWithSender:sender];
+- (CGRect)getVisibleFrameFor:(UIView *)sender {
+    CGRect visibleRect = [self.scrollView convertRect:self.scrollView.bounds toView:self.view];
+    CGRect senderFrame = sender.frame;
+    CGRect visibleSenderFrame = CGRectMake(CGRectGetMinX(senderFrame), CGRectGetMinY(senderFrame) + CGRectGetMinY(visibleRect), CGRectGetWidth(senderFrame), CGRectGetHeight(senderFrame));
+    return visibleSenderFrame;
+}
+
+- (void)hideDropList {
     [self.listView removeFromSuperview];
     self.listView = nil;
 }
