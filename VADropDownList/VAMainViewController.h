@@ -1,5 +1,5 @@
 //
-//  AVMainViewController.h
+//  VAMainViewController.h
 //  VADropDownList
 //
 //  Created by Vladimir Ananko on 11/18/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AVMainViewController : UIViewController
+@interface VAMainViewController : UIViewController
 
 @end

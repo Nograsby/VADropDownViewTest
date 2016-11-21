@@ -1,20 +1,20 @@
 //
-//  AVDropDownCell.m
+//  VAListCell.m
 //  VADropDownList
 //
 //  Created by Vladimir Ananko on 11/19/16.
 //  Copyright © 2016 Vladimir Ananko. All rights reserved.
 //
 
-#import "AVDropDownCell.h"
+#import "VAListCell.h"
 
-@interface AVDropDownCell ()
+@interface VAListCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
-@implementation AVDropDownCell
+@implementation VAListCell
 
 + (NSString *)nibName {
     return NSStringFromClass([self class]);

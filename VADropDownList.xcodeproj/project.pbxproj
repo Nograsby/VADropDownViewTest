@@ -13,11 +13,11 @@
 		F819759F1DDE2ABD00032A74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F819759D1DDE2ABD00032A74 /* Main.storyboard */; };
 		F81975A11DDE2ABD00032A74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81975A01DDE2ABD00032A74 /* Assets.xcassets */; };
 		F81975A41DDE2ABD00032A74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81975A21DDE2ABD00032A74 /* LaunchScreen.storyboard */; };
-		F81975B01DDFCEC100032A74 /* VADropDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81975AF1DDFCEC100032A74 /* VADropDownView.xib */; };
-		F81D13FD1DE057E4005C3CF2 /* AVDropDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F81D13FB1DE057E4005C3CF2 /* AVDropDownCell.m */; };
-		F81D13FE1DE057E4005C3CF2 /* AVDropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81D13FC1DE057E4005C3CF2 /* AVDropDownCell.xib */; };
-		F81D14011DE05808005C3CF2 /* VADropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = F81D14001DE05808005C3CF2 /* VADropDownView.m */; };
-		F82829B81DDF16FA00010933 /* AVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F82829B71DDF16FA00010933 /* AVMainViewController.m */; };
+		F82829B81DDF16FA00010933 /* VAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F82829B71DDF16FA00010933 /* VAMainViewController.m */; };
+		F8830F461DE2FB0300CEB5B6 /* VAListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8830F421DE2FB0300CEB5B6 /* VAListView.m */; };
+		F8830F471DE2FB0300CEB5B6 /* VAListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8830F431DE2FB0300CEB5B6 /* VAListView.xib */; };
+		F8830F4B1DE2FDA300CEB5B6 /* VAListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8830F491DE2FDA300CEB5B6 /* VAListCell.m */; };
+		F8830F4C1DE2FDA300CEB5B6 /* VAListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8830F4A1DE2FDA300CEB5B6 /* VAListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,19 +27,19 @@
 		F81975911DDE2ABD00032A74 /* VADropDownList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VADropDownList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81975951DDE2ABD00032A74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F81975971DDE2ABD00032A74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		F81975981DDE2ABD00032A74 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F81975981DDE2ABD00032A74 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F819759E1DDE2ABD00032A74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F81975A01DDE2ABD00032A74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F81975A31DDE2ABD00032A74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F81975A51DDE2ABD00032A74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F81975AF1DDFCEC100032A74 /* VADropDownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VADropDownView.xib; path = VADropDownView/VADropDownView.xib; sourceTree = "<group>"; };
-		F81D13FA1DE057E4005C3CF2 /* AVDropDownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVDropDownCell.h; path = VADropDownView/AVDropDownCell.h; sourceTree = "<group>"; };
-		F81D13FB1DE057E4005C3CF2 /* AVDropDownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AVDropDownCell.m; path = VADropDownView/AVDropDownCell.m; sourceTree = "<group>"; };
-		F81D13FC1DE057E4005C3CF2 /* AVDropDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AVDropDownCell.xib; path = VADropDownView/AVDropDownCell.xib; sourceTree = "<group>"; };
-		F81D13FF1DE05808005C3CF2 /* VADropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VADropDownView.h; path = VADropDownView/VADropDownView.h; sourceTree = "<group>"; };
-		F81D14001DE05808005C3CF2 /* VADropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VADropDownView.m; path = VADropDownView/VADropDownView.m; sourceTree = "<group>"; };
-		F82829B61DDF16FA00010933 /* AVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMainViewController.h; sourceTree = "<group>"; };
-		F82829B71DDF16FA00010933 /* AVMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVMainViewController.m; sourceTree = "<group>"; };
+		F82829B61DDF16FA00010933 /* VAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAMainViewController.h; sourceTree = "<group>"; };
+		F82829B71DDF16FA00010933 /* VAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAMainViewController.m; sourceTree = "<group>"; };
+		F8830F411DE2FB0300CEB5B6 /* VAListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VAListView.h; path = VADropDownList/VAListView.h; sourceTree = "<group>"; };
+		F8830F421DE2FB0300CEB5B6 /* VAListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = VAListView.m; path = VADropDownList/VAListView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F8830F431DE2FB0300CEB5B6 /* VAListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VAListView.xib; path = VADropDownList/VAListView.xib; sourceTree = "<group>"; };
+		F8830F481DE2FDA300CEB5B6 /* VAListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VAListCell.h; path = VADropDownList/VAListCell.h; sourceTree = "<group>"; };
+		F8830F491DE2FDA300CEB5B6 /* VAListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VAListCell.m; path = VADropDownList/VAListCell.m; sourceTree = "<group>"; };
+		F8830F4A1DE2FDA300CEB5B6 /* VAListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VAListCell.xib; path = VADropDownList/VAListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +94,9 @@
 			children = (
 				F81975971DDE2ABD00032A74 /* AppDelegate.h */,
 				F81975981DDE2ABD00032A74 /* AppDelegate.m */,
-				F82829B61DDF16FA00010933 /* AVMainViewController.h */,
-				F82829B71DDF16FA00010933 /* AVMainViewController.m */,
-				F81975AB1DDE2ACB00032A74 /* VADropDownView */,
+				F82829B61DDF16FA00010933 /* VAMainViewController.h */,
+				F82829B71DDF16FA00010933 /* VAMainViewController.m */,
+				F81975AB1DDE2ACB00032A74 /* DropDownList */,
 				F819759D1DDE2ABD00032A74 /* Main.storyboard */,
 				F81975A01DDE2ABD00032A74 /* Assets.xcassets */,
 				F81975A21DDE2ABD00032A74 /* LaunchScreen.storyboard */,
@@ -114,17 +114,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F81975AB1DDE2ACB00032A74 /* VADropDownView */ = {
+		F81975AB1DDE2ACB00032A74 /* DropDownList */ = {
 			isa = PBXGroup;
 			children = (
-				F81D13FF1DE05808005C3CF2 /* VADropDownView.h */,
-				F81D14001DE05808005C3CF2 /* VADropDownView.m */,
-				F81975AF1DDFCEC100032A74 /* VADropDownView.xib */,
-				F81D13FA1DE057E4005C3CF2 /* AVDropDownCell.h */,
-				F81D13FB1DE057E4005C3CF2 /* AVDropDownCell.m */,
-				F81D13FC1DE057E4005C3CF2 /* AVDropDownCell.xib */,
+				F8830F411DE2FB0300CEB5B6 /* VAListView.h */,
+				F8830F421DE2FB0300CEB5B6 /* VAListView.m */,
+				F8830F431DE2FB0300CEB5B6 /* VAListView.xib */,
+				F8830F481DE2FDA300CEB5B6 /* VAListCell.h */,
+				F8830F491DE2FDA300CEB5B6 /* VAListCell.m */,
+				F8830F4A1DE2FDA300CEB5B6 /* VAListCell.xib */,
 			);
-			name = VADropDownView;
+			name = DropDownList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,9 +189,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F81975A41DDE2ABD00032A74 /* LaunchScreen.storyboard in Resources */,
-				F81D13FE1DE057E4005C3CF2 /* AVDropDownCell.xib in Resources */,
 				F81975A11DDE2ABD00032A74 /* Assets.xcassets in Resources */,
-				F81975B01DDFCEC100032A74 /* VADropDownView.xib in Resources */,
+				F8830F471DE2FB0300CEB5B6 /* VAListView.xib in Resources */,
+				F8830F4C1DE2FDA300CEB5B6 /* VAListCell.xib in Resources */,
 				F819759F1DDE2ABD00032A74 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,11 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8830F4B1DE2FDA300CEB5B6 /* VAListCell.m in Sources */,
 				F81975991DDE2ABD00032A74 /* AppDelegate.m in Sources */,
-				F81D14011DE05808005C3CF2 /* VADropDownView.m in Sources */,
-				F82829B81DDF16FA00010933 /* AVMainViewController.m in Sources */,
+				F82829B81DDF16FA00010933 /* VAMainViewController.m in Sources */,
 				F81975961DDE2ABD00032A74 /* main.m in Sources */,
-				F81D13FD1DE057E4005C3CF2 /* AVDropDownCell.m in Sources */,
+				F8830F461DE2FB0300CEB5B6 /* VAListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

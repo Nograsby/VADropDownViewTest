@@ -1,5 +1,5 @@
 //
-//  AVDropDownCell.h
+//  VAListCell.h
 //  VADropDownList
 //
 //  Created by Vladimir Ananko on 11/19/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AVDropDownCell : UITableViewCell
+@interface VAListCell : UITableViewCell
 
 + (NSString *)nibName;
 + (NSString *)cellIdentifier;

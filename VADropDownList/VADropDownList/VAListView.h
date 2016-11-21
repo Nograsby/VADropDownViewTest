@@ -1,5 +1,5 @@
 //
-//  VADropDownView.h
+//  VAListView.h
 //  VADropDownList
 //
 //  Created by Vladimir Ananko on 11/17/16.
@@ -8,30 +8,29 @@
 
 #import <UIKit/UIKit.h>
 
-@class VADropDownView;
+@class VAListView;
 
 typedef NS_ENUM(NSInteger, DropDirection) {
     DropDirectionDown = 1,
     DropDirectionUp
 };
 
-@protocol VADropDownViewDelegate
+@protocol VAListViewDelegate
 
-- (void)selectedData:(NSString *)string
-        fromDropView:(VADropDownView *)dropView
-           forSender:(UIView *)sender;
+- (void)dataFromListView:(NSString *)string
+              withSender:(UIView *)sender;
 
 @end
 
-@interface VADropDownView : UIView
+@interface VAListView : UIView
 
-@property (nonatomic, retain) id <VADropDownViewDelegate> delegate;
+@property (nonatomic, weak) id <VAListViewDelegate> delegate;
 
 - (instancetype)initWithSender:(UIView *)sender
              maxDisplayedLines:(NSInteger)linesQuantity
                      dataArray:(NSArray *)dataArray
                  dropDirection:(DropDirection)direction;
 
-- (void)hideDropViewWithSender:(UIView *)sender;
+- (void)hideListViewWithSender:(UIView *)sender;
 
 @end
