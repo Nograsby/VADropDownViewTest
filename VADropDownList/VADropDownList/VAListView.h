@@ -10,11 +10,6 @@
 
 @class VAListView;
 
-typedef NS_ENUM(NSInteger, DropDirection) {
-    DropDirectionDown = 1,
-    DropDirectionUp
-};
-
 @protocol VAListViewDelegate
 
 - (void)dataFromListView:(NSString *)string withSender:(UIView *)sender;
@@ -27,7 +22,6 @@ typedef NS_ENUM(NSInteger, DropDirection) {
 
 - (instancetype)initWithSender:(UIView *)sender
             visibleSenderFrame:(CGRect)senderFrame
-             maxDisplayedLines:(NSInteger)linesQuantity
                      dataArray:(NSArray *)dataArray;
 
 @end

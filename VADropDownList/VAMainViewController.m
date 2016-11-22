@@ -43,14 +43,17 @@
 }
 
 - (IBAction)textFieldEditingChanged:(UITextField *)sender {
-    [self hideDropList];
+    [self hideDropListWithSender:sender];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH[cd] %@", sender.text];
     NSArray *filteredArray = [self.listArray filteredArrayUsingPredicate:predicate];
-    [self showDropListWithSender:sender dataArray:filteredArray];
+    if (filteredArray.count != 0) {
+        [self showDropListWithSender:sender dataArray:filteredArray];
+    }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [self hideDropList];
+    [self hideDropListWithSender:textField];
+    
 }
 
 #pragma mark - VAListViewDelegate
@@ -71,7 +74,6 @@
     
     self.listView = [[VAListView alloc] initWithSender:sender
                                     visibleSenderFrame:visibleSenderFrame
-                                     maxDisplayedLines:3
                                              dataArray:array];
     self.listView.delegate = self;
 }
@@ -79,11 +81,17 @@
 - (CGRect)getVisibleFrameFor:(UIView *)sender {
     CGRect visibleRect = [self.scrollView convertRect:self.scrollView.bounds toView:self.view];
     CGRect senderFrame = sender.frame;
-    CGRect visibleSenderFrame = CGRectMake(CGRectGetMinX(senderFrame), CGRectGetMinY(senderFrame) + CGRectGetMinY(visibleRect), CGRectGetWidth(senderFrame), CGRectGetHeight(senderFrame));
+    CGRect visibleSenderFrame = CGRectMake(CGRectGetMinX(senderFrame),
+                                           CGRectGetMinY(senderFrame) + CGRectGetMinY(visibleRect),
+                                           CGRectGetWidth(senderFrame),
+                                           CGRectGetHeight(senderFrame));
     return visibleSenderFrame;
 }
 
-- (void)hideDropList {
+- (void)hideDropListWithSender:(UIView *)sender {
+    sender.layer.shadowColor = nil;
+    sender.layer.shadowOpacity = 0.0f;
+    sender.layer.shadowRadius = 0.0f;
     [self.listView removeFromSuperview];
     self.listView = nil;
 }

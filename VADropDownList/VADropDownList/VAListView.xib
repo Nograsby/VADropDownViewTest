@@ -8,7 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VAListView">
             <connections>
+                <outlet property="bottomView" destination="Ao3-Fa-mNh" id="gzZ-Fo-J6v"/>
+                <outlet property="bottomViewHeightConstraint" destination="JQi-jI-raM" id="KmO-Ly-8Cs"/>
                 <outlet property="tableView" destination="SCk-VU-FkZ" id="X4D-Hb-RXc"/>
+                <outlet property="topView" destination="8Om-wQ-kJ7" id="X0T-8B-Yio"/>
+                <outlet property="topViewHeightConstraint" destination="Smf-EK-sqb" id="SWO-dd-BWQ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,20 +20,38 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="176"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCk-VU-FkZ">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Om-wQ-kJ7">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="Smf-EK-sqb"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCk-VU-FkZ">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="rPe-hz-n8u"/>
                         <outlet property="delegate" destination="-1" id="8d4-Mf-hhu"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ao3-Fa-mNh">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="JQi-jI-raM"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SCk-VU-FkZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AGO-fb-jhZ"/>
-                <constraint firstAttribute="bottom" secondItem="SCk-VU-FkZ" secondAttribute="bottom" id="abp-iu-bWU"/>
-                <constraint firstItem="SCk-VU-FkZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gky-FK-q6F"/>
+                <constraint firstItem="8Om-wQ-kJ7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EWd-9Y-pnc"/>
+                <constraint firstItem="Ao3-Fa-mNh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gzk-3D-SeJ"/>
+                <constraint firstItem="SCk-VU-FkZ" firstAttribute="top" secondItem="8Om-wQ-kJ7" secondAttribute="bottom" id="OG8-Bd-wOd"/>
+                <constraint firstAttribute="trailing" secondItem="8Om-wQ-kJ7" secondAttribute="trailing" id="VB2-gK-zg4"/>
+                <constraint firstItem="8Om-wQ-kJ7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ezD-yK-yyb"/>
+                <constraint firstItem="Ao3-Fa-mNh" firstAttribute="top" secondItem="SCk-VU-FkZ" secondAttribute="bottom" id="klt-tT-rXz"/>
+                <constraint firstAttribute="trailing" secondItem="Ao3-Fa-mNh" secondAttribute="trailing" id="mOk-Gi-mHT"/>
                 <constraint firstAttribute="trailing" secondItem="SCk-VU-FkZ" secondAttribute="trailing" id="uVr-6a-pqZ"/>
+                <constraint firstAttribute="bottom" secondItem="Ao3-Fa-mNh" secondAttribute="bottom" id="wPN-vd-89t"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>

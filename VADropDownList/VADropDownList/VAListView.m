@@ -9,20 +9,19 @@
 #import "VAListView.h"
 
 #import "VAListCell.h"
-
+#import "VAConstants.h"
 #import <QuartzCore/QuartzCore.h>
-
-static CGFloat const VAListViewCornerRadius = 8.0f;
-static CGFloat const VAListViewSenderInsetY = 5.0f;
-static CGFloat const VAListViewShowAnimationDuration = 0.3f;
-static CGFloat const VAListViewMinWidth = 120.0f;
-static CGFloat const VAListViewUpperInsetY = 20.0f;
 
 @interface VAListView () <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *dataArray;
 @property (strong, nonatomic) UIView *sender;
+
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeightConstraint;
 
 @end
 
@@ -30,7 +29,6 @@ static CGFloat const VAListViewUpperInsetY = 20.0f;
 
 - (instancetype)initWithSender:(UIView *)sender
             visibleSenderFrame:(CGRect)senderFrame
-             maxDisplayedLines:(NSInteger)linesQuantityMax
                      dataArray:(NSArray *)dataArray {
     self = [super init];
     
@@ -40,9 +38,14 @@ static CGFloat const VAListViewUpperInsetY = 20.0f;
     if (self) {
         [self commonSetup];
         [self setupTableView];
-        [self animateListViewWithSenderFrame:senderFrame linesQuantityMax:linesQuantityMax];
+        
+        CGFloat listViewHeight = MIN(self.dataArray.count * 30.0f + VAListViewInvisibleHeight, VAListViewMaxHeight);
+        DropDirection dropDirection = (CGRectGetMinY(senderFrame) - listViewHeight >= VAListViewUpperInsetY ) ? DropDirectionUp : DropDirectionDown;
+        
+        [self animateListViewWithHeight:listViewHeight andDropDirection:dropDirection];
         [sender.superview addSubview:self];
-    }
+        [self customizeSenderWithDropDirection:dropDirection];
+     }
     
     return self;
 }
@@ -67,37 +70,42 @@ static CGFloat const VAListViewUpperInsetY = 20.0f;
     self.layer.masksToBounds = NO;
     
     self.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.layer.shadowOpacity = 0.5f;
-    self.layer.shadowRadius = 3.0f;
+    self.layer.shadowOpacity = 0.3f;
+    self.layer.shadowRadius = 2.0f;
     self.layer.shadowOffset = CGSizeMake(0, 0);
 }
 
 - (void)setupTableView {
     UINib *nib = [UINib nibWithNibName:[VAListCell nibName] bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:[VAListCell cellIdentifier]];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.layer.cornerRadius = VAListViewCornerRadius;
 }
 
-- (void)animateListViewWithSenderFrame:(CGRect)visibleSenderFrame
-                      linesQuantityMax:(NSInteger)linesQuantityMax {
-    
-    CGFloat height = (self.dataArray.count >= linesQuantityMax) ? linesQuantityMax * 44.f : self.dataArray.count * 44.f;
-    DropDirection dropDirection = (CGRectGetMinY(visibleSenderFrame) - height >= VAListViewUpperInsetY ) ? DropDirectionUp : DropDirectionDown;
+- (void)animateListViewWithHeight:(CGFloat)listViewHeight andDropDirection:(DropDirection)dropDirection {
     
     CGRect senderFrame = self.sender.frame;
 
+    self.topViewHeightConstraint.constant = (dropDirection == DropDirectionUp) ? 0 : VAListViewInvisibleHeight;
+    self.bottomViewHeightConstraint.constant = (dropDirection == DropDirectionUp) ? VAListViewInvisibleHeight : 0;
+    
     switch (dropDirection) {
         case DropDirectionUp:
             self.frame = CGRectMake(CGRectGetMinX(senderFrame),
                                     CGRectGetMinY(senderFrame) - VAListViewSenderInsetY,
-                                    MAX(CGRectGetWidth(senderFrame), VAListViewMinWidth),
+                                    CGRectGetWidth(senderFrame),
                                     0);
+            
             break;
         case DropDirectionDown:
             self.frame = CGRectMake(CGRectGetMinX(senderFrame),
                                     CGRectGetMaxY(senderFrame) + VAListViewSenderInsetY,
-                                    MAX(CGRectGetWidth(senderFrame), VAListViewMinWidth),
+                                    CGRectGetWidth(senderFrame),
                                     0);
+            self.topView.frame = CGRectMake(CGRectGetMinX(senderFrame),
+                                            CGRectGetMinY(senderFrame) + VAListViewSenderInsetY,
+                                            CGRectGetWidth(senderFrame),
+                                            0);
             break;
         default:
             break;
@@ -108,22 +116,49 @@ static CGFloat const VAListViewUpperInsetY = 20.0f;
     switch (dropDirection) {
         case DropDirectionUp:
             self.frame = CGRectMake(CGRectGetMinX(senderFrame),
-                                    CGRectGetMinY(senderFrame) - VAListViewSenderInsetY - height,
-                                    MAX(CGRectGetWidth(senderFrame), VAListViewMinWidth),
-                                    height);
+                                    CGRectGetMinY(senderFrame) - VAListViewSenderInsetY - listViewHeight,
+                                    CGRectGetWidth(senderFrame),
+                                    listViewHeight);
             break;
         case DropDirectionDown:
             self.frame = CGRectMake(CGRectGetMinX(senderFrame),
                                     CGRectGetMaxY(senderFrame) + VAListViewSenderInsetY,
-                                    MAX(CGRectGetWidth(senderFrame), VAListViewMinWidth) ,
-                                    height);
+                                    CGRectGetWidth(senderFrame),
+                                    listViewHeight);
             break;
         default:
             break;
     }
 
-    self.tableView.frame = CGRectMake(0, 0, MAX(CGRectGetWidth(senderFrame), VAListViewMinWidth), height);
+    self.tableView.frame = CGRectMake(0, 0, CGRectGetWidth(senderFrame), listViewHeight);
+    self.topView.frame = CGRectMake(0, 0, CGRectGetWidth(senderFrame), 0);
+
     [UIView commitAnimations];
+}
+
+- (void)customizeSenderWithDropDirection:(DropDirection)dropDirection {
+    [self.sender.superview bringSubviewToFront:self.sender];
+    
+    self.sender.layer.masksToBounds = NO;
+    self.sender.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.sender.layer.shadowOpacity = 0.5f;
+    self.sender.layer.shadowRadius = 3.0f;
+    self.sender.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    UIEdgeInsets contentInsets;
+    switch (dropDirection) {
+        case DropDirectionUp:
+            contentInsets = UIEdgeInsetsMake(0, 5, 5, 5);
+            break;
+        case DropDirectionDown:
+            contentInsets = UIEdgeInsetsMake(5, 5, 0, 5);
+            break;
+        default:
+            break;
+    }
+    
+    CGRect shadowPath = UIEdgeInsetsInsetRect(self.sender.bounds, contentInsets);
+    self.sender.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowPath].CGPath;
 }
 
 #pragma mark - UITableView

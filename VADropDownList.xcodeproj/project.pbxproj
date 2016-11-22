@@ -40,6 +40,7 @@
 		F8830F481DE2FDA300CEB5B6 /* VAListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VAListCell.h; path = VADropDownList/VAListCell.h; sourceTree = "<group>"; };
 		F8830F491DE2FDA300CEB5B6 /* VAListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VAListCell.m; path = VADropDownList/VAListCell.m; sourceTree = "<group>"; };
 		F8830F4A1DE2FDA300CEB5B6 /* VAListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VAListCell.xib; path = VADropDownList/VAListCell.xib; sourceTree = "<group>"; };
+		F8830F4E1DE4392200CEB5B6 /* VAConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VAConstants.h; path = VADropDownList/VAConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +118,7 @@
 		F81975AB1DDE2ACB00032A74 /* DropDownList */ = {
 			isa = PBXGroup;
 			children = (
+				F8830F4E1DE4392200CEB5B6 /* VAConstants.h */,
 				F8830F411DE2FB0300CEB5B6 /* VAListView.h */,
 				F8830F421DE2FB0300CEB5B6 /* VAListView.m */,
 				F8830F431DE2FB0300CEB5B6 /* VAListView.xib */,
